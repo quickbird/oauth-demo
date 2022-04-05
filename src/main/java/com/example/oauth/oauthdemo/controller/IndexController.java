@@ -28,8 +28,8 @@ public class IndexController {
         param.put("client_secret", "xxx");
         param.put("code", code);
         HttpEntity httpEntity = new HttpEntity(param, headers);
-        ResponseEntity<JSONObject> responseEntity = restTemplate.postForEntity("https://github.com/login/oauth/access_token?client_id=9e1c1a4e702002be6a70&" +
-                "client_secret=962952bad9e3432bc03f4efbb8ae3baa6daaca8f&code=" + code, httpEntity, JSONObject.class);
+        ResponseEntity<JSONObject> responseEntity = restTemplate.postForEntity("https://github.com/login/oauth/access_token?client_id=xxx&" +
+                "client_secret=xxx&code=" + code, httpEntity, JSONObject.class);
         headers.setBearerAuth(responseEntity.getBody().getString("access_token"));
         httpEntity = new HttpEntity(null, headers);
         ResponseEntity<JSONObject> resEntity = restTemplate.exchange("https://api.github.com/user", HttpMethod.GET, httpEntity, JSONObject.class);
